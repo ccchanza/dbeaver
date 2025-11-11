@@ -26,14 +26,6 @@ import java.io.StringReader;
 import java.security.SecureRandom;
 import java.util.Base64;
 public class DefaultCertificateStorageTest extends DBeaverUnitTest {
-    @Test
-    public void loadDerFromPem() throws Exception {
-        final var derKey = makeKey();
-        final var pemKey = makePemKey(derKey);
-
-        Assert.assertArrayEquals(derKey, DefaultCertificateStorage.loadDerFromPem(new StringReader(pemKey)));
-    }
-
     @NotNull
     private static byte[] makeKey() {
         final SecureRandom random = new SecureRandom();

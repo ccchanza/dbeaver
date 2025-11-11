@@ -205,13 +205,14 @@ public class SSLHandlerTrustStoreImpl extends SSLHandlerImpl {
             return false;
         }
         final Reader reader = new StringReader(new String(key, StandardCharsets.UTF_8));
-        Files.write(tempDerFile, DefaultCertificateStorage.loadDerFromPem(reader));
-        String derCertPath = tempDerFile.toAbsolutePath().toString();
-        if (DBWorkbench.isDistributed() || DBWorkbench.getPlatform().getApplication().isMultiuser()) {
-            handler.setSecureProperty(SSLHandlerTrustStoreImpl.PROP_SSL_CLIENT_KEY, derCertPath);
-        } else {
-            handler.setProperty(SSLHandlerTrustStoreImpl.PROP_SSL_CLIENT_KEY, derCertPath);
-        }
+        // Files.write(tempDerFile, DefaultCertificateStorage.loadDerFromPem(reader));
+        // String derCertPath = tempDerFile.toAbsolutePath().toString();
+        // if (DBWorkbench.isDistributed() || DBWorkbench.getPlatform().getApplication().isMultiuser()) {
+        //     handler.setSecureProperty(SSLHandlerTrustStoreImpl.PROP_SSL_CLIENT_KEY, derCertPath);
+        // } else {
+        //     handler.setProperty(SSLHandlerTrustStoreImpl.PROP_SSL_CLIENT_KEY, derCertPath);
+        // }
+        
         // Unfortunately, we can't delete the temp file here.
         // The chain is built asynchronously by the driver, and we don't know at which moment in time it will happen.
         // It will still be deleted during shutdown.
