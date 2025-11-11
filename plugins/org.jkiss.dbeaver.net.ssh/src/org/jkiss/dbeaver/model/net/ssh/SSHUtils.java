@@ -16,7 +16,7 @@
  */
 package org.jkiss.dbeaver.model.net.ssh;
 
-import com.jcraft.jsch.*;
+// import com.jcraft.jsch.*;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.jsch.internal.core.IConstants;
@@ -73,39 +73,39 @@ public class SSHUtils {
 
     public static boolean isKeyFileEncrypted(String privKeyPath) {
             // Check whether this key is encrypted
-        if (privKeyPath != null) {
-            // Determine whether public key is encrypted
-            try {
-                JSch testSch = new JSch();
-                testSch.addIdentity(privKeyPath);
-                IdentityRepository ir = testSch.getIdentityRepository();
-                List<Identity> identities = ir.getIdentities();
-                for (Identity identity : identities) {
-                    if (identity.isEncrypted()) {
-                        return true;
-                    }
-                }
-            } catch (JSchException e) {
-                // Something went wrong
-                log.debug("Can't check private key encryption: " + e.getMessage());
-            }
-        }
+        // if (privKeyPath != null) {
+        //     // Determine whether public key is encrypted
+        //     try {
+        //         JSch testSch = new JSch();
+        //         testSch.addIdentity(privKeyPath);
+        //         IdentityRepository ir = testSch.getIdentityRepository();
+        //         List<Identity> identities = ir.getIdentities();
+        //         for (Identity identity : identities) {
+        //             if (identity.isEncrypted()) {
+        //                 return true;
+        //             }
+        //         }
+        //     } catch (JSchException e) {
+        //         // Something went wrong
+        //         log.debug("Can't check private key encryption: " + e.getMessage());
+        //     }
+        // }
         return false;
     }
 
 
     public static boolean isKeyEncrypted(byte[] privKeyValue) {
         // Check whether this key is encrypted
-        if (privKeyValue != null) {
-            try {
-                JSch testSch = new JSch();
-                KeyPair keyPair = KeyPair.load(testSch, privKeyValue, null);
-                return keyPair.isEncrypted();
-            } catch (JSchException e) {
-                // Something went wrong
-                log.debug("Can't check private key encryption: " + e.getMessage());
-            }
-        }
+        // if (privKeyValue != null) {
+        //     try {
+        //         JSch testSch = new JSch();
+        //         KeyPair keyPair = KeyPair.load(testSch, privKeyValue, null);
+        //         return keyPair.isEncrypted();
+        //     } catch (JSchException e) {
+        //         // Something went wrong
+        //         log.debug("Can't check private key encryption: " + e.getMessage());
+        //     }
+        // }
         return false;
     }
 

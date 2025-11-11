@@ -110,16 +110,16 @@ public class SSHJSessionController extends AbstractSessionController<SSHJSession
             } catch (Throwable e) {
                 throw new DBException("SSH public key authentication failed", e);
             }
-        } else if (auth instanceof SSHAuthConfiguration.Agent) {
-            final List<AuthMethod> methods = new ArrayList<>();
-            try {
-                for (Object identity : createAgentIdentityRepository().getIdentities()) {
-                    methods.add(new DBeaverAuthAgent((Identity) identity));
-                }
-                client.auth(host.username(), methods);
-            } catch (Throwable e) {
-                throw new DBException("SSH agent authentication failed", e);
-            }
+        // } else if (auth instanceof SSHAuthConfiguration.Agent) {
+        //     final List<AuthMethod> methods = new ArrayList<>();
+        //     try {
+        //         for (Object identity : createAgentIdentityRepository().getIdentities()) {
+        //             methods.add(new DBeaverAuthAgent((Identity) identity));
+        //         }
+        //         client.auth(host.username(), methods);
+        //     } catch (Throwable e) {
+        //         throw new DBException("SSH agent authentication failed", e);
+        //     }
         }
 
         return client;
