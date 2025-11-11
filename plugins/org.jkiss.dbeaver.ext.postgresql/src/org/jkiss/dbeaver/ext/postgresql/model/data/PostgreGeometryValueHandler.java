@@ -18,7 +18,6 @@ package org.jkiss.dbeaver.ext.postgresql.model.data;
 
 import org.jkiss.code.NotNull;
 import org.jkiss.dbeaver.Log;
-import org.jkiss.dbeaver.data.gis.handlers.WKGUtils;
 import org.jkiss.dbeaver.ext.postgresql.PostgreConstants;
 import org.jkiss.dbeaver.ext.postgresql.PostgreUtils;
 import org.jkiss.dbeaver.ext.postgresql.model.PostgreDataSource;
@@ -57,13 +56,7 @@ public class PostgreGeometryValueHandler extends JDBCAbstractValueHandler {
             Object object = resultSet.getObject(index);
             return getValueFromObject(session, type, object,false, false);
         } catch (SQLException e) {
-            if (e.getCause() instanceof IllegalArgumentException) {
-                // Try to parse as WKG
-                String wkbValue = resultSet.getString(index);
-                return WKGUtils.parseWKB(wkbValue);
-            } else {
-                throw e;
-            }
+            throw e;
         }
     }
 
@@ -207,21 +200,7 @@ public class PostgreGeometryValueHandler extends JDBCAbstractValueHandler {
         if (CommonUtils.isEmpty(pgString)) {
             return new DBGeometry();
         }
-        try {
-            return WKGUtils.parseWKT(pgString);
-        } catch (Throwable e) {
-            try {
-                // May happen when geometry value was stored inside composite
-                return makeGeometryFromWKB(pgString);
-            } catch (Throwable ignored) {
-                // Throw the original exception instead
-            }
-            if (e instanceof RuntimeException || e instanceof DBCException) {
-                throw e;
-            } else {
-                throw new DBCException(e.getMessage(), e);
-            }
-        }
+        return makeGeometryFromWKB(pgString);
     }
 
     private String getStringFromGeometry(Geometry geometry) throws DBCException {
