@@ -9,8 +9,8 @@
    <license url="https://dbeaver.io/product/dbeaver_license.txt"/>
 
    <!-- <plugin id="org.jkiss.dbeaver.ext.db2" version="0.0.0"/> -->
-   <plugin id="org.jkiss.dbeaver.ext.mysql" version="0.0.0" />
-   <plugin id="org.jkiss.dbeaver.ext.mssql" version="0.0.0" />
+   <!-- <plugin id="org.jkiss.dbeaver.ext.mysql" version="0.0.0" /> -->
+   <!-- <plugin id="org.jkiss.dbeaver.ext.mssql" version="0.0.0" /> -->
    <plugin id="org.jkiss.dbeaver.ext.oracle" version="0.0.0" />
    <!-- <plugin id="org.jkiss.dbeaver.ext.postgresql" version="0.0.0" /> -->
    <plugin id="org.jkiss.dbeaver.ext.generic" version="0.0.0" />
