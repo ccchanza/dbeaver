@@ -29,7 +29,7 @@
         <module>org.jkiss.dbeaver.model.sql.jdbc</module>
         <module>org.jkiss.dbeaver.registry</module>
 
-        <module>org.jkiss.dbeaver.cmp.simple</module>
+        <!-- <module>org.jkiss.dbeaver.cmp.simple</module> -->
 
         <module>org.jkiss.dbeaver.ext.generic</module>
         <module>org.jkiss.dbeaver.ext.h2</module>
