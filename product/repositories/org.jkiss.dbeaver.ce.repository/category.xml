@@ -12,12 +12,6 @@
         <description>DBeaver advanced extensions</description>
     </category-def>
 
-    <!-- <feature id="org.jkiss.dbeaver.ide.feature">
-        <category name="org.jkiss.dbeaver"/>
-    </feature> -->
-    <feature id="org.jkiss.dbeaver.ext.office.feature">
-        <category name="org.jkiss.dbeaver.additions"/>
-    </feature>
     <feature id="org.jkiss.dbeaver.git.feature">
         <category name="org.jkiss.dbeaver.additions"/>
     </feature>
