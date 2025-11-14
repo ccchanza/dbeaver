@@ -39,10 +39,10 @@ import org.jkiss.dbeaver.model.fs.nio.EFSNIOFolder;
 import org.jkiss.dbeaver.model.impl.app.BaseProjectImpl;
 import org.jkiss.dbeaver.model.impl.app.BaseWorkspaceImpl;
 import org.jkiss.dbeaver.model.navigator.DBNModel;
-import org.jkiss.dbeaver.model.task.DBTTaskManager;
+// import org.jkiss.dbeaver.model.task.DBTTaskManager;
 import org.jkiss.dbeaver.registry.DesktopDataSourceRegistry;
-import org.jkiss.dbeaver.registry.task.TaskConstants;
-import org.jkiss.dbeaver.registry.task.TaskManagerImpl;
+// import org.jkiss.dbeaver.registry.task.TaskConstants;
+// import org.jkiss.dbeaver.registry.task.TaskManagerImpl;
 import org.jkiss.dbeaver.runtime.DBWorkbench;
 import org.jkiss.utils.CommonUtils;
 import org.jkiss.utils.IOUtils;
@@ -75,7 +75,7 @@ public class DesktopProjectImpl extends BaseProjectImpl implements RCPProject, D
 
     @NotNull
     private final IProject project;
-    protected volatile DBTTaskManager taskManager;
+    // protected volatile DBTTaskManager taskManager;
 
     private volatile boolean projectInvalidated;
 
@@ -220,36 +220,36 @@ public class DesktopProjectImpl extends BaseProjectImpl implements RCPProject, D
         return getWorkspace().getPlatform().getNavigatorModel();
     }
 
-    @NotNull
-    @Override
-    public DBTTaskManager getTaskManager() {
-        ensureOpen();
-        if (taskManager == null) {
-            synchronized (metadataSync) {
-                if (taskManager == null) {
-                    taskManager = createTaskManager();
-                }
-            }
-        }
-        return taskManager;
-    }
+    // @NotNull
+    // @Override
+    // public DBTTaskManager getTaskManager() {
+    //     ensureOpen();
+    //     if (taskManager == null) {
+    //         synchronized (metadataSync) {
+    //             if (taskManager == null) {
+    //                 taskManager = createTaskManager();
+    //             }
+    //         }
+    //     }
+    //     return taskManager;
+    // }
 
-    @Nullable
-    @Override
-    public DBTTaskManager getTaskManager(boolean create) {
-        if (taskManager != null) {
-            return taskManager;
-        }
-        return create ? getTaskManager() : null;
-    }
+    // @Nullable
+    // @Override
+    // public DBTTaskManager getTaskManager(boolean create) {
+    //     if (taskManager != null) {
+    //         return taskManager;
+    //     }
+    //     return create ? getTaskManager() : null;
+    // }
 
-    @NotNull
-    protected DBTTaskManager createTaskManager() {
-        return new TaskManagerImpl(
-            this,
-            getWorkspace().getMetadataFolder().resolve(TaskConstants.TASK_STATS_FOLDER)
-        );
-    }
+    // @NotNull
+    // protected DBTTaskManager createTaskManager() {
+    //     return new TaskManagerImpl(
+    //         this,
+    //         getWorkspace().getMetadataFolder().resolve(TaskConstants.TASK_STATS_FOLDER)
+    //     );
+    // }
 
     /**
      * Validates project files structure.

@@ -23,8 +23,6 @@ Export-Package: org.jkiss.dbeaver.registry,
  org.jkiss.dbeaver.registry.task,
  org.jkiss.dbeaver.registry.updater
 Require-Bundle: org.eclipse.core.runtime,
- org.eclipse.core.expressions,
- org.eclipse.core.net,
  com.google.gson,
  org.jkiss.dbeaver.model;visibility:=reexport,
  org.jkiss.dbeaver.model.cli
