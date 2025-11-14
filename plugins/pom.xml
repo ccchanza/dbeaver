@@ -43,7 +43,7 @@
             <!-- Desktop (swt/jface) components -->
             <modules>
                 <module>org.jkiss.dbeaver.launcher</module>
-                <module>org.jkiss.dbeaver.core</module>
+                <!-- <module>org.jkiss.dbeaver.core</module> -->
             </modules>
         </profile>
     </profiles>
