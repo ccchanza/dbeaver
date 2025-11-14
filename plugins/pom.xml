@@ -15,7 +15,7 @@
     <modules>
         <module>org.jkiss.dbeaver.launcher</module>
         <module>org.jkiss.dbeaver.model</module>
-        <module>org.jkiss.dbeaver.model.cli</module>
+        <!-- <module>org.jkiss.dbeaver.model.cli</module> -->
         <module>org.jkiss.dbeaver.model.event</module>
         <module>org.jkiss.dbeaver.model.jdbc</module>
         <module>org.jkiss.dbeaver.model.lsm</module>
