@@ -90,7 +90,6 @@ Export-Package: org.jkiss.dbeaver,
  org.jkiss.dbeaver.runtime.ui.console,
  org.jkiss.dbeaver.utils
 Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,
- org.eclipse.core.expressions,
  org.eclipse.core.net,
  org.apache.commons.jexl;visibility:=reexport,
  com.github.jsqlparser;visibility:=reexport,

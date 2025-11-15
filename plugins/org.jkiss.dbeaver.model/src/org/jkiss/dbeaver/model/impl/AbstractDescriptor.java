@@ -18,7 +18,7 @@ package org.jkiss.dbeaver.model.impl;
 
 import org.apache.commons.jexl3.*;
 import org.apache.commons.jexl3.introspection.JexlUberspect;
-import org.eclipse.core.expressions.*;
+// import org.eclipse.core.expressions.*;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IContributor;
@@ -310,42 +310,42 @@ public abstract class AbstractDescriptor {
         }
     }
 
-    @Nullable
-    protected static Expression getEnablementExpression(@NotNull IConfigurationElement config) {
-        return getEnablementExpression(config, "enabledWhen");
-    }
+    // @Nullable
+    // protected static Expression getEnablementExpression(@NotNull IConfigurationElement config) {
+    //     return getEnablementExpression(config, "enabledWhen");
+    // }
 
-    @Nullable
-    protected static Expression getEnablementExpression(@NotNull IConfigurationElement config, @NotNull String expressionElementName) {
-        IConfigurationElement[] elements = config.getChildren(expressionElementName);
-        if (elements.length > 0) {
-            try {
-                IConfigurationElement[] enablement = elements[0].getChildren();
-                if (enablement.length > 0) {
-                    return ExpressionConverter.getDefault().perform(enablement[0]);
-                }
-            } catch (Exception e) {
-                log.debug(e);
-            }
-        }
-        return null;
-    }
+    // @Nullable
+    // protected static Expression getEnablementExpression(@NotNull IConfigurationElement config, @NotNull String expressionElementName) {
+    //     IConfigurationElement[] elements = config.getChildren(expressionElementName);
+    //     if (elements.length > 0) {
+    //         try {
+    //             IConfigurationElement[] enablement = elements[0].getChildren();
+    //             if (enablement.length > 0) {
+    //                 return ExpressionConverter.getDefault().perform(enablement[0]);
+    //             }
+    //         } catch (Exception e) {
+    //             log.debug(e);
+    //         }
+    //     }
+    //     return null;
+    // }
 
-    protected static boolean isExpressionTrue(@Nullable Expression expression, @Nullable Object exprContext) {
-        if (expression != null) {
-            try {
-                IEvaluationContext context = new EvaluationContext(null, exprContext);
-                EvaluationResult result = expression.evaluate(context);
-                if (result != EvaluationResult.TRUE) {
-                    return false;
-                }
-            } catch (CoreException e) {
-                log.debug(e);
-                return false;
-            }
-        }
-        return true;
-    }
+    // protected static boolean isExpressionTrue(@Nullable Expression expression, @Nullable Object exprContext) {
+    //     if (expression != null) {
+    //         try {
+    //             IEvaluationContext context = new EvaluationContext(null, exprContext);
+    //             EvaluationResult result = expression.evaluate(context);
+    //             if (result != EvaluationResult.TRUE) {
+    //                 return false;
+    //             }
+    //         } catch (CoreException e) {
+    //             log.debug(e);
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    // }
 
     /////////////////////////
     // Descriptor itself
