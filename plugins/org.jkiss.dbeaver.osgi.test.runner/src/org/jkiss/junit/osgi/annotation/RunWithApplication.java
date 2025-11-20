@@ -16,7 +16,6 @@
  */
 package org.jkiss.junit.osgi.annotation;
 
-import org.eclipse.core.runtime.Platform;
 import org.jkiss.junit.osgi.OSGITestRunner;
 
 import java.lang.annotation.*;

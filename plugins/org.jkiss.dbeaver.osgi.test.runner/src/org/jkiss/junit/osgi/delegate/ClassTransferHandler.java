@@ -16,8 +16,6 @@
  */
 package org.jkiss.junit.osgi.delegate;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import org.junit.runner.notification.RunListener;
 
 import java.io.*;

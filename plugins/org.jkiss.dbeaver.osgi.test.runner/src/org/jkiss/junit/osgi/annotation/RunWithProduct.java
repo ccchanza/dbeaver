@@ -16,8 +16,6 @@
  */
 package org.jkiss.junit.osgi.annotation;
 
-import org.jkiss.junit.osgi.OSGITestRunner;
-
 import java.lang.annotation.*;
 
 /**
