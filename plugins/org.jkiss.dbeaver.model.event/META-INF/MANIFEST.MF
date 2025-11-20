@@ -15,8 +15,7 @@ Export-Package: org.jkiss.dbeaver.model.websocket,
  org.jkiss.dbeaver.model.websocket.event.resource,
  org.jkiss.dbeaver.model.websocket.event.session,
  org.jkiss.dbeaver.model.websocket.registry
-Require-Bundle: org.eclipse.core.runtime,
- org.jkiss.dbeaver.model;visibility:=reexport,
+Require-Bundle: org.jkiss.dbeaver.model;visibility:=reexport,
  org.jkiss.dbeaver.registry;visibility:=reexport,
  org.jkiss.bundle.gson,
  org.jkiss.dbeaver.model.sm
