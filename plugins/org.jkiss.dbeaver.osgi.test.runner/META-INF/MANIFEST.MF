@@ -16,7 +16,4 @@ Require-Bundle: org.junit;visibility:=reexport,
  org.apache.felix.scr,
  org.jkiss.utils,
  org.jkiss.bundle.gson,
- org.jkiss.dbeaver.model,
- org.objenesis;visibility:=reexport,
- net.bytebuddy.byte-buddy;visibility:=reexport,
- net.bytebuddy.byte-buddy-agent;visibility:=reexport
+ org.jkiss.dbeaver.model
