@@ -892,25 +892,25 @@ public abstract class JDBCDataSource extends AbstractDataSource
     /////////////////////////////////////////////////
     // Certs
 
-    protected String saveCertificateToFile(String rootCertProp) throws IOException {
-        Path certPath = Files.createTempFile(
-            DBWorkbench.getPlatform().getCertificateStorage().getStorageFolder(),
-            getContainer().getDriver().getId() + "-" + getContainer().getId(),
-            ".cert");
-        Files.writeString(certPath, rootCertProp);
-        trackTempFile(certPath);
-        return certPath.toAbsolutePath().toString();
-    }
+    // protected String saveCertificateToFile(String rootCertProp) throws IOException {
+    //     Path certPath = Files.createTempFile(
+    //         DBWorkbench.getPlatform().getCertificateStorage().getStorageFolder(),
+    //         getContainer().getDriver().getId() + "-" + getContainer().getId(),
+    //         ".cert");
+    //     Files.writeString(certPath, rootCertProp);
+    //     trackTempFile(certPath);
+    //     return certPath.toAbsolutePath().toString();
+    // }
 
-    protected String saveTrustStoreToFile(byte[] trustStoreData) throws IOException {
-        Path trustStorePath = Files.createTempFile(
-            DBWorkbench.getPlatform().getCertificateStorage().getStorageFolder(),
-            getContainer().getDriver().getId() + "-" + getContainer().getId(),
-            ".jks");
-        Files.write(trustStorePath, trustStoreData);
-        trackTempFile(trustStorePath);
-        return trustStorePath.toAbsolutePath().toString();
-    }
+    // protected String saveTrustStoreToFile(byte[] trustStoreData) throws IOException {
+    //     Path trustStorePath = Files.createTempFile(
+    //         DBWorkbench.getPlatform().getCertificateStorage().getStorageFolder(),
+    //         getContainer().getDriver().getId() + "-" + getContainer().getId(),
+    //         ".jks");
+    //     Files.write(trustStorePath, trustStoreData);
+    //     trackTempFile(trustStorePath);
+    //     return trustStorePath.toAbsolutePath().toString();
+    // }
 
     public void trackTempFile(Path file) {
         if (this.tempFiles == null) {
