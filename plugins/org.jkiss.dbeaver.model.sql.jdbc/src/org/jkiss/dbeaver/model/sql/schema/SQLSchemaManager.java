@@ -232,6 +232,7 @@ public final class SQLSchemaManager {
             try (Statement dbStat = connection.createStatement()) {
                 try {
                     log.debug("Execute migration query: " + line);
+                    // Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')
                     dbStat.execute(line);
                 } catch (SQLException e) {
                     //TODO: find a better way to avoid migration errors
