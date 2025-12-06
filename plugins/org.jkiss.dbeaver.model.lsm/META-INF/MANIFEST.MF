@@ -8,8 +8,7 @@ Bundle-SymbolicName: org.jkiss.dbeaver.model.lsm;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.antlr.antlr4-runtime;visibility:=reexport,
  org.jkiss.dbeaver.model;visibility:=reexport,
- org.jkiss.utils,
- org.eclipse.core.runtime
+ org.jkiss.utils
 Bundle-RequiredExecutionEnvironment: JavaSE-21
 Export-Package: org.jkiss.dbeaver.model.lsm,
  org.jkiss.dbeaver.model.lsm.sql,
@@ -17,5 +16,4 @@ Export-Package: org.jkiss.dbeaver.model.lsm,
  org.jkiss.dbeaver.model.lsm.sql.impl,
  org.jkiss.dbeaver.model.lsm.sql.impl.syntax,
  org.jkiss.dbeaver.model.stm
-Import-Package: org.jkiss.code
 Automatic-Module-Name: org.jkiss.dbeaver.model.lsm

@@ -233,12 +233,6 @@ public class GisTransformUtils {
     public static Geometry getJtsGeometry(@Nullable Object object) {
         if (object instanceof Geometry) {
             return (Geometry) object;
-        } else if (object instanceof org.cugos.wkg.Geometry) {
-            try {
-                return new WKTReader().read(object.toString());
-            } catch (ParseException e) {
-                log.debug("Unable to parse geometry for CRS transformation: " + e.getMessage());
-            }
         }
 
         return null;

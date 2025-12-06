@@ -16,7 +16,6 @@
  */
 package org.jkiss.dbeaver.runtime;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.jkiss.dbeaver.Log;
 
 import java.security.Provider;
@@ -32,38 +31,5 @@ public class SecurityProviderUtils {
     private static boolean registrationDone;
 
     public static void registerSecurityProvider() {
-        if (!registrationDone) {
-            try {
-                if (securityProvider == null) {
-                    registerBouncyCastleSecurityProvider();
-                    if (securityProvider == null) {
-                        log.debug("BouncyCastle not registered, using the default JCE provider");
-                    }
-                }
-            } finally {
-                registrationDone = true;
-            }
-        }
     }
-
-    private static boolean registerBouncyCastleSecurityProvider() {
-        try {
-            Provider provider = new BouncyCastleProvider();
-
-            if (Security.getProvider(provider.getName()) == null) {
-                Security.addProvider(provider);
-            }
-
-            if (securityProvider == null) {
-                securityProvider = provider.getName();
-                log.debug("BounceCastle bundle found. Use JCE provider " + provider.getName());
-                return true;
-            }
-        } catch (Exception e) {
-            log.warn("Registration of BC Security Provider unexpectedly failed", e);
-        }
-        return false;
-    }
-
-
 }

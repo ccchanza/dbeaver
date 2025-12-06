@@ -1,3 +1,15 @@
+1. SourceCode/plugins/org.jkiss.dbeaver.registry/src/org/jkiss/dbeaver/registry/DataSourceSerializerModern.java L1037
+2. SourceCode/plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/net/GlobalProxyAuthenticator.java 113
+3. SourceCode/plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/ui/console/ConsoleUserInterface.java L267
+4. SourceCode/plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/connection/LocalNativeClientLocation.java L39
+5. SourceCode/plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/model/connection/LocalNativeClientLocation.java L47
+6. SourceCode/plugins/org.jkiss.dbeaver.model.sql.jdbc/src/org/jkiss/dbeaver/model/sql/schema/SQLSchemaManager.java L235
+7. SourceCode/plugins/org.jkiss.dbeaver.model.sql.jdbc/src/org/jkiss/dbeaver/model/sql/schema/SQLSchemaManager.java L241
+8. SourceCode/plugins/org.jkiss.dbeaver.ext.h2/src/org/jkiss/dbeaver/ext/h2/backup/JDBCDatabaseH2BackupHandler.java L50
+9. SourceCode/plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/WebUtils.java L121
+10. SourceCode/plugins/org.jkiss.dbeaver.model/src/org/jkiss/dbeaver/runtime/net/GlobalProxySelector.java L74
+
+
 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/dbeaver_news.svg?style=social&label=Follow%20%40dbeaver_news)](https://twitter.com/dbeaver_news)
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/fa0bb9cf5a904c7d87424f8f6351ba92)](https://app.codacy.com/gh/dbeaver/dbeaver/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Apache 2.0](https://img.shields.io/github/license/cronn-de/jira-sync.svg)](http://www.apache.org/licenses/LICENSE-2.0)

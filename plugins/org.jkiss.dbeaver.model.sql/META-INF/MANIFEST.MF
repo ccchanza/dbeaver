@@ -38,8 +38,8 @@ Export-Package: org.jkiss.dbeaver.model.sql,
  org.jkiss.dbeaver.model.text,
  org.jkiss.dbeaver.model.text.parser,
  org.jkiss.dbeaver.model.text.parser.rules
-Require-Bundle: org.eclipse.core.runtime,
- com.google.gson,
+Require-Bundle: org.jkiss.bundle.gson,
+ org.jkiss.bundle.commons-jexl3,
  org.eclipse.text;visibility:=reexport,
  org.jkiss.dbeaver.model;visibility:=reexport,
  org.jkiss.dbeaver.model.lsm

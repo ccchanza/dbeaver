@@ -16,8 +16,8 @@
  */
 package org.jkiss.dbeaver.registry;
 
-import com.sun.jna.platform.win32.Advapi32Util;
-import com.sun.jna.platform.win32.WinReg;
+// import com.sun.jna.platform.win32.Advapi32Util;
+// import com.sun.jna.platform.win32.WinReg;
 import org.jkiss.code.NotNull;
 import org.jkiss.code.Nullable;
 import org.jkiss.dbeaver.Log;
@@ -87,35 +87,36 @@ public class ApplicationPolicyProvider implements DBPPolicyProvider {
     @Override
     public Object getPolicyProperty(@NotNull String property) {
         Object value = System.getProperty(property);
-        if (value != null) {
-            return value;
-        }
-
-        value = getRegistryPolicyValue(WinReg.HKEY_CURRENT_USER, property);
-        if (value != null) {
-            return value;
-        }
-
-        value = getRegistryPolicyValue(WinReg.HKEY_LOCAL_MACHINE, property);
         return value;
+        // if (value != null) {
+        //     return value;
+        // }
+
+        // value = getRegistryPolicyValue(WinReg.HKEY_CURRENT_USER, property);
+        // if (value != null) {
+        //     return value;
+        // }
+
+        // value = getRegistryPolicyValue(WinReg.HKEY_LOCAL_MACHINE, property);
+        // return value;
     }
 
-    @Nullable
-    private static Object getRegistryPolicyValue(@NotNull WinReg.HKEY root, @NotNull String property) {
-        if (!RuntimeUtils.isWindows()) {
-            return null;
-        }
+    // @Nullable
+    // private static Object getRegistryPolicyValue(@NotNull WinReg.HKEY root, @NotNull String property) {
+    //     if (!RuntimeUtils.isWindows()) {
+    //         return null;
+    //     }
 
-        try {
-            if (Advapi32Util.registryKeyExists(root, DBEAVER_REGISTRY_POLICY_NODE) &&
-                Advapi32Util.registryValueExists(root, DBEAVER_REGISTRY_POLICY_NODE, property)
-            ) {
-                return Advapi32Util.registryGetValue(root, DBEAVER_REGISTRY_POLICY_NODE, property);
-            }
-        } catch (Throwable e) {
-            log.error("Error reading Windows registry", e);
-        }
+    //     try {
+    //         if (Advapi32Util.registryKeyExists(root, DBEAVER_REGISTRY_POLICY_NODE) &&
+    //             Advapi32Util.registryValueExists(root, DBEAVER_REGISTRY_POLICY_NODE, property)
+    //         ) {
+    //             return Advapi32Util.registryGetValue(root, DBEAVER_REGISTRY_POLICY_NODE, property);
+    //         }
+    //     } catch (Throwable e) {
+    //         log.error("Error reading Windows registry", e);
+    //     }
 
-        return null;
-    }
+    //     return null;
+    // }
 }

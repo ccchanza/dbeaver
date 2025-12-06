@@ -82,8 +82,8 @@ public interface DBPPlatform {
     @NotNull
     DBPPreferenceStore getPreferenceStore();
 
-    @NotNull
-    DBACertificateStorage getCertificateStorage();
+    // @NotNull
+    // DBACertificateStorage getCertificateStorage();
 
     @NotNull
     Path getTempFolder(@NotNull DBRProgressMonitor monitor, @NotNull String name) throws IOException;

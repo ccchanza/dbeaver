@@ -142,8 +142,6 @@ public class GISGeometryValueHandler extends JDBCAbstractValueHandler {
                     throw new DBCException("Error parsing geometry value from binary", e);
                 }
             }
-        } else if (object instanceof String) {
-            return WKGUtils.parseWKT((String) object);
         } else {
             throw new DBCException("Unsupported geometry value: " + object);
         }

@@ -16,7 +16,6 @@
  */
 package org.jkiss.dbeaver.model.impl.app;
 
-import org.bouncycastle.util.io.pem.PemReader;
 import org.jkiss.code.NotNull;
 import org.jkiss.code.Nullable;
 import org.jkiss.dbeaver.DBException;
@@ -202,27 +201,6 @@ public class DefaultCertificateStorage implements DBACertificateStorage {
 
     @Override
     public void addSelfSignedCertificate(@NotNull DBPDataSourceContainer dataSource, @NotNull String certType, @NotNull String certDN) throws DBException {
-        if (userDefinedKeystores.containsKey(getKeyStoreName(dataSource, certType))) {
-            throw new DBException("Adding new certificates would override user-specified keystore");
-        }
-        final KeyStore keyStore = getKeyStore(dataSource, certType);
-        try {
-            List<Certificate> certChain = new ArrayList<>();
-
-            KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA");
-            KeyPair keyPair = keyPairGenerator.generateKeyPair();
-            Certificate clientCert = CertificateGenHelper.generateCertificate(certDN, keyPair, 365, "SHA256withRSA");
-
-            keyStore.setCertificateEntry(CLIENT_CERT_ALIAS, clientCert);
-            certChain.add(clientCert);
-
-            PrivateKey privateKey = keyPair.getPrivate();
-            keyStore.setKeyEntry(KEY_CERT_ALIAS, privateKey, DEFAULT_PASSWORD, certChain.toArray(new Certificate[certChain.size()]));
-
-            saveKeyStore(dataSource, certType, keyStore);
-        } catch (Throwable e) {
-            throw new DBException("Error adding self-signed certificate to keystore", e);
-        }
     }
 
     @Override
@@ -269,10 +247,9 @@ public class DefaultCertificateStorage implements DBACertificateStorage {
         return KeyStore.getDefaultType();
     }
 
-    @NotNull
-    public static byte[] loadDerFromPem(@NotNull Reader reader) throws IOException {
-        return new PemReader(reader).readPemObject().getContent();
-    }
+    // @NotNull
+    // public static byte[] loadDerFromPem(@NotNull Reader reader) throws IOException {
+    // }
 
     /**
      * That's tricky.
@@ -299,12 +276,6 @@ public class DefaultCertificateStorage implements DBACertificateStorage {
 
             KeyFactory factory = KeyFactory.getInstance("RSA");
             return factory.generatePrivate(new PKCS8EncodedKeySpec(pkcs8EncodedKey));
-
-        } else if (privateKeyPem.contains(PEM_RSA_PRIVATE_START)) {  // PKCS#1 format
-
-            privateKeyPem = privateKeyPem.replace(PEM_RSA_PRIVATE_START, "").replace(PEM_RSA_PRIVATE_END, "");
-            privateKeyPem = privateKeyPem.replaceAll("\\s", "");
-            return PKCS1Util.loadPrivateKeyFromPKCS1(privateKeyPem);
         } else {
             throw new GeneralSecurityException("Not supported format of a private key");
         }

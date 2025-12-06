@@ -18,7 +18,15 @@
 package org.jkiss.dbeaver.model.sql.parser;
 
 import org.antlr.v4.runtime.Token;
-import org.eclipse.jface.text.*;
+import org.eclipse.jface.text.Document;
+import org.eclipse.jface.text.Region;
+import org.eclipse.jface.text.IDocumentExtension3;
+import org.eclipse.jface.text.IDocument;
+import org.eclipse.jface.text.ITypedRegion;
+import org.eclipse.jface.text.IRegion;
+import org.eclipse.jface.text.IDocumentPartitioner;
+import org.eclipse.jface.text.BadLocationException;
+
 import org.eclipse.jface.text.rules.FastPartitioner;
 import org.jkiss.code.NotNull;
 import org.jkiss.code.Nullable;

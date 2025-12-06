@@ -4,14 +4,12 @@ Bundle-Name: DBeaver Generic Plug-in
 Bundle-SymbolicName: org.jkiss.dbeaver.ext.generic;singleton:=true
 Bundle-Version: 2.3.253.qualifier
 Bundle-Release-Date: 20251117
-Require-Bundle: org.eclipse.core.runtime,
- org.jkiss.dbeaver.model;visibility:=reexport,
+Require-Bundle: org.jkiss.dbeaver.model;visibility:=reexport,
  org.jkiss.dbeaver.model.jdbc;visibility:=reexport,
- com.google.guava;visibility:=reexport,
- com.google.gson;visibility:=reexport,
+ org.jkiss.bundle.guava;visibility:=reexport,
+ org.jkiss.bundle.gson;visibility:=reexport,
  org.apache.commons.commons-codec;visibility:=reexport,
- org.apache.commons.commons-logging;visibility:=reexport,
- slf4j.api;visibility:=reexport
+ org.apache.commons.commons-logging;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-21
 Bundle-Vendor: DBeaver Corp
@@ -19,5 +17,4 @@ Export-Package: org.jkiss.dbeaver.ext.generic,
  org.jkiss.dbeaver.ext.generic.edit,
  org.jkiss.dbeaver.ext.generic.model,
  org.jkiss.dbeaver.ext.generic.model.meta
-Import-Package: org.slf4j
 Automatic-Module-Name: org.jkiss.dbeaver.ext.generic
